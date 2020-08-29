@@ -44,8 +44,11 @@ export class MySqlConnection extends IDBConnection {
                 connection.release()
             }
 
-            this.pool.query('SELECT 1 + 1 AS solution',  (error: any, results: any, fields: any) => {
-                if (error) throw error;
+            this.pool.query('SELECT 1 + 1 AS solution',  (error: any, results: any) => {
+                if (error) {
+                    console.error(error)
+                    return;
+                };
                 console.log('The solution is: ', results[0].solution);
               });
 
