@@ -22,7 +22,6 @@ export class TaskRepository extends ITaskRepository {
     async findAll(): Promise<Task> {
         let sql = 'SELECT * FROM testdb.tasks;'
         let results = await this.connection.execute(sql)
-        console.log("selected!!",results)
         return results.map((r: any) => this.convertModel(r))
     }
 
@@ -37,7 +36,6 @@ export class TaskRepository extends ITaskRepository {
         )
         const id = await this.connection.execute('mysql_insert_id()')
         // task.id = result.insertId
-        console.log(result)
         task.id = id
         return task;
     }

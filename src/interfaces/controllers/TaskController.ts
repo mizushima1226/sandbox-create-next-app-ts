@@ -31,7 +31,6 @@ export class TasksController {
 
     async createTask(req: any) {
         const { title, description } = req.body
-        console.log("this is request body",title,description)
         const useCase = new CreateTask(this.taskRepository)
         let result = await useCase.execute(title, description)
         return this.taskSerializer.serialize(result)

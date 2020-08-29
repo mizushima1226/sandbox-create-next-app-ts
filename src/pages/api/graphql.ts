@@ -33,7 +33,6 @@ const resolvers = {
     },
     async allTasks(){
       let result = await taskController.findAll()
-      console.log("ok",result)
       return result
     }
   },

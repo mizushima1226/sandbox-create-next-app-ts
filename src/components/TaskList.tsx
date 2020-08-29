@@ -16,7 +16,6 @@ export default function PostList() {
   if (loading) return <div>Loading</div>
 
   const { allTasks } = data
-  console.log(data)
 
   return (
     <ul>

@@ -9,15 +9,6 @@ export class MySqlConnection extends IDBConnection {
     constructor(){
         super()
         dotenv.config()
-        console.log(`
-        
-        =====================================
-
-        start connect to mysql!!!!!!!!!!!!!!!
-
-        =====================================
-        
-        `)
         this.pool = mysql.createPool({
             connectionLimit: 5,
             host: process.env.DB_HOST_DEV,
