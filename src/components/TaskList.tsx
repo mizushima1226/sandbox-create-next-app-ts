@@ -1,5 +1,7 @@
 import { gql, useQuery } from '@apollo/client'
 
+import Error from 'src/pages/_error'
+
 export const ALL_TASKS_QUERY = gql`
   query {
     allTasks{
@@ -12,7 +14,7 @@ export const ALL_TASKS_QUERY = gql`
 export default function PostList() {
   const { loading, error, data } = useQuery(ALL_TASKS_QUERY)
 
-  if (error) return <h1>Error!!!!</h1>
+  if (error) return <Error statusCode={500}/>
   if (loading) return <div>Loading</div>
 
   const { allTasks } = data
