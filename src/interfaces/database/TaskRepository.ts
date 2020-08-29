@@ -26,7 +26,7 @@ export class TaskRepository extends ITaskRepository {
     }
 
     async persist(task: Task): Promise<Task> {
-        let sql = 'insert into testdb.tasks (title, description, created_at) values (?, ?, ?)'
+        let sql = 'INSERT INTO testdb.tasks (title, description, created_at) values (?, ?, ?)'
         let result = await this.connection.execute(sql,
             [
                 task.title,
