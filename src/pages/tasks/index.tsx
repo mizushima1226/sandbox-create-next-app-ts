@@ -1,5 +1,7 @@
-import TaskList, {ALL_TASKS_QUERY} from 'src/components/TaskList'
+import TaskList from 'src/components/TaskList'
 import { initializeApollo } from 'src/lib/apolloClient'
+
+import { from } from '@apollo/client'
 
 const IndexPage = () => (
     <TaskList />
@@ -7,13 +9,13 @@ const IndexPage = () => (
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo()
-  try {
-    await apolloClient.query({
-      query: ALL_TASKS_QUERY,
-    })  
-  } catch (error) {
-    console.log(error);
-  }
+  // try {
+  //   await apolloClient.query({
+  //     query: ALL_TASKS_QUERY,
+  //   })  
+  // } catch (error) {
+  //   console.log(error);
+  // }
 
   return {
     props: {

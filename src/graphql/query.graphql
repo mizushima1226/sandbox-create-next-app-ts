@@ -1,0 +1,6 @@
+query allTasks{
+    allTasks{
+        title
+        description
+    }
+}

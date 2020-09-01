@@ -19,7 +19,7 @@ export class TaskRepository extends ITaskRepository {
         return this.convertModel(result[0])
     }
 
-    async findAll(): Promise<Task> {
+    async findAll(): Promise<Task[]> {
         let sql = 'SELECT * FROM testdb.tasks;'
         let results = await this.connection.execute(sql)
         return results.map((r: any) => this.convertModel(r))
@@ -62,7 +62,7 @@ export class TaskRepository extends ITaskRepository {
 
     //#region *** private method ***
 
-    private convertModel(r:any){
+    private convertModel(r:any): Task{
         let task = new Task()
 
         task.id = r.id
