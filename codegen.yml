@@ -6,6 +6,8 @@ generates:
     plugins:
       - typescript
       - typescript-resolvers
+  src/generated/typeDefs.ts:
+      - src/graphql/plugins/typescript-typedefs.js
   src/generated/graphql.tsx:
     plugins:
       - "typescript"
@@ -22,3 +24,6 @@ generates:
       apolloReactComponentsImportFrom: "@apollo/client"
       apolloReactHocImportFrom: "@apollo/client"
       apolloReactHooksImportFrom: "@apollo/client"
+
+      
+# TypeDefsの生成→ https://github.com/dotansimha/graphql-code-generator/issues/3899
