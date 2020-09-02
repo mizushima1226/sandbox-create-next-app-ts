@@ -1,7 +1,7 @@
 import { Task } from '../../domain/models/Task'
 import moment from 'moment-timezone'
 
-import { Task as GqlTask } from '../../generated/graphql'
+import { Task as GqlTask } from '../../graphql/graphql'
 
 const _serializeStringTask = (task: Task):GqlTask => {
     return {

@@ -1,4 +1,4 @@
-import { useAllTasksQuery } from 'src/generated/graphql'
+import { useAllTasksQuery } from 'src/graphql/graphql'
 
 import Error from 'src/pages/_error'
 

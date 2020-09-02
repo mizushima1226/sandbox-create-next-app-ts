@@ -6,8 +6,8 @@ import { MySqlConnection } from '../../infrastructure/MySqlConnection'
 const mysqlConnection = new MySqlConnection()
 const taskController = new TasksController(mysqlConnection)
 
-import { QueryResolvers, Resolvers } from 'src/generated/resolver'
-import { typeDefs } from 'src/generated/typeDefs';
+import { QueryResolvers, Resolvers } from 'src/graphql/resolver'
+import { typeDefs } from 'src/graphql/typeDefs';
 
 const Query: QueryResolvers = {
   users() {

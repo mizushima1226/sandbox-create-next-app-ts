@@ -2,13 +2,13 @@ overwrite: true
 schema: "src/graphql/schema.graphql"
 documents: "src/graphql/query.graphql"
 generates:
-  src/generated/resolver.ts:
+  src/graphql/resolver.ts:
     plugins:
       - typescript
       - typescript-resolvers
-  src/generated/typeDefs.ts:
+  src/graphql/typeDefs.ts:
       - src/graphql/plugins/typescript-typedefs.js
-  src/generated/graphql.tsx:
+  src/graphql/graphql.ts:
     plugins:
       - "typescript"
       - "typescript-operations"
