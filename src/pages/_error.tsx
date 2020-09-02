@@ -2,7 +2,7 @@ type Props = {
     statusCode: number;
 }
 
-const  Error = (props: Props) => {
+const Error = (props: Props) => {
     const { statusCode } = props;
     return (
       <p>
