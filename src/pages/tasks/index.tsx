@@ -1,18 +1,16 @@
-import TaskList from 'src/components/TaskList'
-import { initializeApollo } from 'src/lib/apolloClient'
+import TaskList from 'src/components/TaskList';
+import { initializeApollo } from 'src/lib/apolloClient';
 
-import { from } from '@apollo/client'
+import { from } from '@apollo/client';
 
-const IndexPage = () => (
-    <TaskList />
-)
+const IndexPage = () => <TaskList />;
 
 export async function getStaticProps() {
-  const apolloClient = initializeApollo()
+  const apolloClient = initializeApollo();
   // try {
   //   await apolloClient.query({
   //     query: ALL_TASKS_QUERY,
-  //   })  
+  //   })
   // } catch (error) {
   //   console.log(error);
   // }
@@ -22,7 +20,7 @@ export async function getStaticProps() {
       initialApolloState: apolloClient.cache.extract(),
     },
     revalidate: 1,
-  }
+  };
 }
 
-export default IndexPage
+export default IndexPage;

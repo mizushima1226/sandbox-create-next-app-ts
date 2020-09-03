@@ -1,34 +1,34 @@
-import { ApolloServer } from 'apollo-server-micro'
+import { ApolloServer } from 'apollo-server-micro';
 
-import { TasksController } from '../../interfaces/controllers/TaskController'
-import { MySqlConnection } from '../../infrastructure/MySqlConnection'
+import { TasksController } from '../../interfaces/controllers/TaskController';
+import { MySqlConnection } from '../../infrastructure/MySqlConnection';
 
-const mysqlConnection = new MySqlConnection()
-const taskController = new TasksController(mysqlConnection)
+const mysqlConnection = new MySqlConnection();
+const taskController = new TasksController(mysqlConnection);
 
-import { QueryResolvers, Resolvers } from 'src/graphql/resolver'
+import { QueryResolvers, Resolvers } from 'src/graphql/resolver';
 import { typeDefs } from 'src/graphql/typeDefs';
 
 const Query: QueryResolvers = {
   users() {
-    return [{ name: 'Nextjs', age: 12 }]
+    return [{ name: 'Nextjs', age: 12 }];
   },
-  async allTasks(){
-    let result  = await taskController.findAll()
-    return result
-  }
-}
+  async allTasks() {
+    let result = await taskController.findAll();
+    return result;
+  },
+};
 
 const resolvers: Resolvers = {
   Query,
-}
+};
 
-const apolloServer = new ApolloServer({ typeDefs, resolvers })
+const apolloServer = new ApolloServer({ typeDefs, resolvers });
 
 export const config = {
   api: {
     bodyParser: false,
   },
-}
+};
 
-export default apolloServer.createHandler({ path: '/api/graphql' })
+export default apolloServer.createHandler({ path: '/api/graphql' });

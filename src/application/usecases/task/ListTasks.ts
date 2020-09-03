@@ -1,14 +1,13 @@
-import { ITaskRepository } from '../../repositories/ITaskRepository'
+import { ITaskRepository } from '../../repositories/ITaskRepository';
 
 export class ListTasks {
-    private taskRepository: ITaskRepository
+  private taskRepository: ITaskRepository;
 
-    constructor(taskRepository: ITaskRepository){
-        this.taskRepository = taskRepository
-    }
+  constructor(taskRepository: ITaskRepository) {
+    this.taskRepository = taskRepository;
+  }
 
-    execute(){
-        return this.taskRepository.findAll()
-    }
-
+  execute() {
+    return this.taskRepository.findAll();
+  }
 }

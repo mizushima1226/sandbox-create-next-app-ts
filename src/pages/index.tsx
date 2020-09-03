@@ -1,4 +1,4 @@
-import useSWR from 'swr'
+import useSWR from 'swr';
 
 const fetcher = (query: any) =>
   fetch('/api/graphql', {
@@ -9,15 +9,15 @@ const fetcher = (query: any) =>
     body: JSON.stringify({ query }),
   })
     .then((res) => res.json())
-    .then((json) => json.data)
+    .then((json) => json.data);
 
 export default function Index() {
-  const { data, error } = useSWR('{ users { name } }', fetcher)
+  const { data, error } = useSWR('{ users { name } }', fetcher);
 
-  if (error) return <div>Failed to load</div>
-  if (!data) return <div>Loading...</div>
+  if (error) return <div>Failed to load</div>;
+  if (!data) return <div>Loading...</div>;
 
-  const { users } = data
+  const { users } = data;
 
   return (
     <div>
@@ -25,5 +25,5 @@ export default function Index() {
         <div key={idx}>{user.name}</div>
       ))}
     </div>
-  )
+  );
 }
