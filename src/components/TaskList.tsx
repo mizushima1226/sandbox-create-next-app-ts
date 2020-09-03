@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { useAllTasksQuery } from 'src/graphql/graphql';
 
 import Error from 'src/pages/_error';
@@ -11,14 +13,33 @@ export default function PostList() {
   const { allTasks } = data;
 
   return (
-    <ul>
-      {allTasks.map((task) => {
-        return (
-          <li key={`${task.title}`}>
-            {task.title}:{task.description}
-          </li>
-        );
-      })}
-    </ul>
+    <>
+      <table>
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>タイトル</th>
+            <th>説明</th>
+            <th>詳細</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allTasks.map((task, idx) => {
+            return (
+              <tr key={task.id}>
+                <td>{idx + 1}</td>
+                <td>{task.title}</td>
+                <td>{task.description}</td>
+                <td>
+                  <Link href={`/tasks/${task.id}`}>
+                    <a>詳細</a>
+                  </Link>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
   );
 }

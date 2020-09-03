@@ -1,19 +1,20 @@
-import gql from 'graphql-tag';
+import gql from "graphql-tag";
 
 export const typeDefs = gql`
-  type Query {
-    users: [User!]!
-    allTasks: [Task!]!
-  }
+type Query {
+  users: [User!]!
+  allTasks: [Task!]!
+}
 
-  type User {
-    name: String
-    age: Int
-  }
+type User {
+  name: String
+  age: Int
+}
 
-  type Task {
-    id: ID!
-    title: String!
-    description: String
-  }
+type Task {
+  id: ID!
+  title: String!
+  description: String
+}
+
 `;
