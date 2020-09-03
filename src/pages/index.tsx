@@ -21,8 +21,8 @@ export default function Index() {
 
   return (
     <div>
-      {users.map((user: any, idx: number) => (
-        <div key={idx}>{user.name}</div>
+      {users.map((user: any) => (
+        <div key={user.id}>{user.name}</div>
       ))}
     </div>
   );

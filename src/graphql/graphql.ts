@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = {
   [K in keyof T]: T[K];
@@ -35,9 +36,7 @@ export type Task = {
 export type AllTasksQueryVariables = Exact<{ [key: string]: never }>;
 
 export type AllTasksQuery = { __typename?: 'Query' } & {
-  allTasks: Array<
-    { __typename?: 'Task' } & Pick<Task, 'title' | 'description'>
-  >;
+  allTasks: Array<{ __typename?: 'Task' } & Pick<Task, 'title' | 'description'>>;
 };
 
 export const AllTasksDocument = gql`
@@ -67,27 +66,13 @@ export const AllTasksDocument = gql`
 export function useAllTasksQuery(
   baseOptions?: Apollo.QueryHookOptions<AllTasksQuery, AllTasksQueryVariables>,
 ) {
-  return Apollo.useQuery<AllTasksQuery, AllTasksQueryVariables>(
-    AllTasksDocument,
-    baseOptions,
-  );
+  return Apollo.useQuery<AllTasksQuery, AllTasksQueryVariables>(AllTasksDocument, baseOptions);
 }
 export function useAllTasksLazyQuery(
-  baseOptions?: Apollo.LazyQueryHookOptions<
-    AllTasksQuery,
-    AllTasksQueryVariables
-  >,
+  baseOptions?: Apollo.LazyQueryHookOptions<AllTasksQuery, AllTasksQueryVariables>,
 ) {
-  return Apollo.useLazyQuery<AllTasksQuery, AllTasksQueryVariables>(
-    AllTasksDocument,
-    baseOptions,
-  );
+  return Apollo.useLazyQuery<AllTasksQuery, AllTasksQueryVariables>(AllTasksDocument, baseOptions);
 }
 export type AllTasksQueryHookResult = ReturnType<typeof useAllTasksQuery>;
-export type AllTasksLazyQueryHookResult = ReturnType<
-  typeof useAllTasksLazyQuery
->;
-export type AllTasksQueryResult = Apollo.QueryResult<
-  AllTasksQuery,
-  AllTasksQueryVariables
->;
+export type AllTasksLazyQueryHookResult = ReturnType<typeof useAllTasksLazyQuery>;
+export type AllTasksQueryResult = Apollo.QueryResult<AllTasksQuery, AllTasksQueryVariables>;

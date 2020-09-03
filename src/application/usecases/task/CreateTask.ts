@@ -10,9 +10,9 @@ export class CreateTask {
     this.taskRepository = taskRepository;
   }
 
-  execute(title: string, description: string) {
+  execute(title: string, description: string): Promise<Task> {
     const dt = moment.tz();
-    let task = new Task(title, description, dt);
+    const task = new Task(title, description, dt);
     return this.taskRepository.persist(task);
   }
 }

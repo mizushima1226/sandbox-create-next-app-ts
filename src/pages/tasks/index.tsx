@@ -1,8 +1,6 @@
 import TaskList from 'src/components/TaskList';
 import { initializeApollo } from 'src/lib/apolloClient';
 
-import { from } from '@apollo/client';
-
 const IndexPage = () => <TaskList />;
 
 export async function getStaticProps() {

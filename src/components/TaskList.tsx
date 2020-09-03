@@ -12,9 +12,9 @@ export default function PostList() {
 
   return (
     <ul>
-      {allTasks.map((task, idx) => {
+      {allTasks.map((task) => {
         return (
-          <li key={idx}>
+          <li key={`${task.title}`}>
             {task.title}:{task.description}
           </li>
         );

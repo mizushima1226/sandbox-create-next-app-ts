@@ -1,6 +1,7 @@
 import moment from 'moment-timezone';
 
 import { ITaskRepository } from '../../repositories/ITaskRepository';
+import { Task } from '../../../domain/models/Task';
 
 export class UpdateTask {
   private taskRepository: ITaskRepository;
@@ -9,8 +10,8 @@ export class UpdateTask {
     this.taskRepository = taskRepository;
   }
 
-  async execute(id: number, title: string, description: string) {
-    let task = await this.taskRepository.find(id);
+  async execute(id: number, title: string, description: string): Promise<Task> {
+    const task = await this.taskRepository.find(id);
     task.title = title;
     task.description = description;
     task.updatedAt = moment();

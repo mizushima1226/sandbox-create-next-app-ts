@@ -1,7 +1,8 @@
-const mysql = require('mysql');
 import dotenv from 'dotenv';
 
 import { IDBConnection } from '../interfaces/database/IDBConnection';
+
+const mysql = require('mysql');
 
 export class MySqlConnection extends IDBConnection {
   private pool: any;
@@ -35,18 +36,13 @@ export class MySqlConnection extends IDBConnection {
         connection.release();
       }
 
-      this.pool.query(
-        'SELECT 1 + 1 AS solution',
-        (error: any, results: any) => {
-          if (error) {
-            console.error(error);
-            return;
-          }
-          console.log('The solution is: ', results[0].solution);
-        },
-      );
-
-      return;
+      this.pool.query('SELECT 1 + 1 AS solution', (error: any, results: any) => {
+        if (error) {
+          console.error(error);
+          return;
+        }
+        console.log('The solution is: ', results[0].solution);
+      });
     });
 
     this.pool.on('connection', () => {
@@ -70,7 +66,6 @@ export class MySqlConnection extends IDBConnection {
           return;
         }
         resolve(results);
-        return;
       });
     });
   }

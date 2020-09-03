@@ -1,5 +1,4 @@
 import { Task } from '../../domain/models/Task';
-import moment from 'moment-timezone';
 
 import { Task as GqlTask } from '../../graphql/graphql';
 
@@ -14,10 +13,11 @@ const _serializeStringTask = (task: Task): GqlTask => {
 };
 
 export class TaskSerializer {
-  serialize(data: Task): GqlTask;
-  serialize(data: Task[]): GqlTask[];
+  static serialize(data: Task): GqlTask;
 
-  serialize(data: any) {
+  static serialize(data: Task[]): GqlTask[];
+
+  static serialize(data: any) {
     if (!data) {
       throw new Error(`expect data to be not undefined or null`);
     }

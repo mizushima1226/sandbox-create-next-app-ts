@@ -1,7 +1,7 @@
 const { printSchema } = require('graphql');
 
 module.exports = {
-  plugin: (schema, documents, config) => {
+  plugin: (schema) => {
     return [
       'import gql from "graphql-tag";',
       '',

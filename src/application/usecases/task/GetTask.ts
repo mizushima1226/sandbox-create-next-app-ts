@@ -1,4 +1,5 @@
 import { ITaskRepository } from '../../repositories/ITaskRepository';
+import { Task } from '../../../domain/models/Task';
 
 export class GetTask {
   private taskRepository: ITaskRepository;
@@ -7,7 +8,7 @@ export class GetTask {
     this.taskRepository = taskRepository;
   }
 
-  execute(id: number) {
+  execute(id: number): Promise<Task> {
     return this.taskRepository.find(id);
   }
 }

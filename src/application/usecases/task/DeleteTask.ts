@@ -1,4 +1,5 @@
 import { ITaskRepository } from '../../repositories/ITaskRepository';
+import { Task } from '../../../domain/models/Task';
 
 export class DeleteTask {
   private taskRepository: ITaskRepository;
@@ -7,8 +8,8 @@ export class DeleteTask {
     this.taskRepository = taskRepository;
   }
 
-  async execute(id: number) {
-    let task = await this.taskRepository.find(id);
+  async execute(id: number): Promise<Task> {
+    const task = await this.taskRepository.find(id);
     return this.taskRepository.delete(task);
   }
 }
