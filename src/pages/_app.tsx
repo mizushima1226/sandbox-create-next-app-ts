@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app';
 import { ApolloProvider } from '@apollo/client';
+import 'semantic-ui-css/semantic.min.css';
 
 import { useApollo } from 'src/lib/apolloClient';
 

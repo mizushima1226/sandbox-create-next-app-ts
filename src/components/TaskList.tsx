@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { Button } from 'semantic-ui-react';
 
 import { useAllTasksQuery } from 'src/graphql/graphql';
 
